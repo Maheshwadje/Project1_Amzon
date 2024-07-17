@@ -1,7 +1,10 @@
 package ecommerce.Project;
 
 import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -21,7 +24,9 @@ public class Test_Case3
 	login.signinclickhome();
 	login.invalidun();
 	login.Continue_button_Method();
-	Assert.assertEquals(driver.getTitle(), "Amazon Sign In", "invalid mobile number");
+	
+	WebElement text = driver.findElement(By.xpath("//span[@id='continue']"));
+	Assert.assertEquals(text.isDisplayed(), true , "invalid mobile number");
 	Reporter.log("login with invalid mobile number");
 	}
 
